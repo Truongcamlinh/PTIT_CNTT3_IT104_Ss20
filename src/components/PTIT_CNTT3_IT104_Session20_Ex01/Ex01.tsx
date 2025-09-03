@@ -2,15 +2,24 @@ import React from 'react'
 
 
 function Ex01() {
-    const [state, setState] = React.useState('');
-    const isLong=state.length < 5;
-    return (
-        <div>
-            <h2>Kiểm tra độ dài chuỗi nhập vào</h2>
-            <input type="text" placeholder='Nhập vào đây' name='inputString' onChange={(e)=>setState(e.target.value)}/>
-            {isLong && (<div style={{ color: 'red', border: '1px solid red', backgroundColor: '#FFE6E6', textAlign: 'center' }}>Chuỗi nhập vào dài hơn 5 ký tự!</div>)}
-        </div>
-    )
-}
+ const [text, setText] = React.useState("");
+
+  return (
+    <div style={{ fontFamily: "Arial", padding: "20px" }}>
+      <h2>Kiểm tra độ dài chuỗi</h2>
+      <input
+        type="text"
+        placeholder="Nhập chuỗi..."
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        style={{ padding: "8px", fontSize: "16px" }}
+      />
+      {text.length > 5 && (
+        <p style={{ color: "red", marginTop: "10px" }}>
+          Chuỗi bạn nhập dài hơn 5 ký tự!
+        </p>
+      )}
+    </div>
+  );}
 
 export default Ex01
