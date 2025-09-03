@@ -22,7 +22,6 @@ function Ex06() {
                         <input
                             ref={inputRef}
                             type="text"
-                            placeholder="Nhập nội dung..."
                         />
                         <button onClick={() => setOpen(false)}>Đóng</button>
                     </div>

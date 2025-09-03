@@ -1,12 +1,13 @@
-import { useEffect } from 'react'
+import React, { useEffect } from "react";
 
-function Ex03() {
-    useEffect(()=>console.log('Mounted'),[])
+export default function Welcome() {
+  useEffect(() => {
+    console.log("Component Welcome vừa được render lần đầu!");
+  }, []);
   return (
     <div>
-      Chào mừng bạn đến với ứng dụng của tôi!
+      <h1>Xin chào!</h1>
+      <p>Chào mừng bạn đến với ứng dụng React.</p>
     </div>
-  )
+  );
 }
-
-export default Ex03

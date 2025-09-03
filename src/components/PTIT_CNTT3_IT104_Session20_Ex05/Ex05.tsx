@@ -1,25 +1,21 @@
-import React, { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 function Ex05() {
-    const [seconds, setSeconds] = React.useState(0);
-    const [isRunning, setIsRunning] = React.useState(true);
-    useEffect(() => {
-        if (!isRunning) return;
-        const interval = setInterval(() => setSeconds((s) => s + 1), 1000);
-        return () => clearInterval(interval);
-    }, [isRunning]);
+    const [seconds, setSeconds] = useState(0);
 
-    return (
-        <div>
-            <h2>Bộ đếm:</h2>
-            <p>{seconds} giây</p>
-            <button onClick={() => setIsRunning(!isRunning)}>
-                {isRunning ? 'Dừng' : 'Bắt đầu'}
-            </button>
-            <button onClick={() => setSeconds(0)}>
-                Đặt lại
-            </button>
-        </div>
-    )
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSeconds((prev) => prev + 1);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []); 
+
+  return (
+    <div style={{ fontFamily: "Arial", padding: "20px" }}>
+      <h2>Bộ đếm thời gian</h2>
+      <p>Thời gian đã trôi qua: {seconds} giây</p>
+    </div>
+  );
 }
 export default Ex05
